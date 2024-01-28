@@ -14,8 +14,6 @@
 
 9. **Counting Penalty Points:** The code needs to accurately count and update penalty points at the end of each round.
 
-10. **Game End:** The code should determine when the game ends (when one or more players reach 100 points or more) and declare the winner based on the least points.
-
 11. **Shooting the Moon:** The code currently doesn't have an implementation for Shooting the Moon, and you may want to add this feature.
 
 It seems like the code is missing some aspects related to the specific rules of Hearts, such as card passing, leading restrictions, and Shooting the Moon. Enhancing these aspects will make your implementation more aligned with the traditional rules of Hearts.
