@@ -1,3 +1,1 @@
 2. **Card Passing:** The code doesn't explicitly handle card passing. You may need to implement a mechanism for players to select and pass cards to opponents at the beginning of each game.
-
-11. **Shooting the Moon:** The code currently doesn't have an implementation for Shooting the Moon, and you may want to add this feature.
