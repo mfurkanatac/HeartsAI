@@ -1,1 +1,4 @@
-2. **Card Passing:** The code doesn't explicitly handle card passing. You may need to implement a mechanism for players to select and pass cards to opponents at the beginning of each game.
+DD/MM/YY
+04/03/24 - Game implementation is finished
+
+Card passing not working well
