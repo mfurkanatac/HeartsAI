@@ -1,4 +1,1 @@
-DD/MM/YY
-04/03/24 - Game implementation is finished
-
-Card passing not working well
+class table might be constructed incorrectly
