@@ -13,15 +13,16 @@ class HeartsGame():
 
     def play_game(self):
         while not self.is_game_over():
-            # draw the cards
-            deck = [Card(card_type, number) for card_type in card_types for number in cards]
-            random.shuffle(deck)
-            for i, player in enumerate(self.table.players):
-                player.hand = deck[i*13:(i+1)*13]
-                player.hand.sort(key=lambda x: (x.card_type, x.number))
-            
+            self.draw_cards()            
             self.pass_cards()
             self.play_round()
+    
+    def draw_cards(self):
+        deck = [Card(card_type, number) for card_type in card_types for number in cards]
+        random.shuffle(deck)
+        for i, player in enumerate(self.table.players):
+            player.hand = deck[i*13:(i+1)*13]
+            player.hand.sort(key=lambda x: (x.card_type, x.number))
 
     def play_round(self):
         self.table.start_round()
