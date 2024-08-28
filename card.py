@@ -10,5 +10,5 @@ class Card:
         return self.card_type
 
     def __str__(self):
-        return f"{self._number}{self._card_type}"
+        return f"{self.number}{self.card_type}"
     

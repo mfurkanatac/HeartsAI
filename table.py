@@ -97,8 +97,8 @@ class Table():
 
     def find_starting_player_index(self, card_type, number):
         for i, player in enumerate(self.players):
-            if Card(card_type, number) in player.hand:
-                return i    
+            if any(card.card_type == card_type and card.number == number for card in player.hand):
+                return i
     
     def update_round_status(self):
         # Update the last winner and increment the round number
@@ -111,7 +111,3 @@ class Table():
         for card, player in self.current_trick:
             print(f"{player}: {card.number}{card.card_type}", end=" ")
         print()
-    
-    def update_game(self):
-        # if the table ends (the current game ends)
-        self.current_round = 1

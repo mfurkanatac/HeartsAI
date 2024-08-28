@@ -13,7 +13,9 @@ class HeartsGame():
 
     def play_game(self):
         while not self.is_game_over():
-            self.draw_cards()            
+            self.table = Table(self.table.players)
+            self.reset_cards()
+            self.draw_cards()     
             self.pass_cards()
             self.play_round()
     
@@ -68,6 +70,12 @@ class HeartsGame():
             target_player = self.table.players[target_index]
             passed_cards = pass_list[i]
             target_player.hand.extend(passed_cards)
+    
+    def reset_cards(self):
+        for player in self.table.players:
+            player.hand = []
+            player.stack = []
+        
 
     def get_passed_cards(self, player):
         passed_cards = []
@@ -79,14 +87,20 @@ class HeartsGame():
                 card_input = input(f"Select a card to pass ({_ + 1}/3): ")
 
                 if card_input in player.card_list():
-                    passed_cards.append(card_input)
-                    player.remove_card(card_input)
+                    # find the card object remove it from the player and add it to the passed cards
+                    card_type = card_input[-1]
+                    number = int(card_input[:-1])
+                    for card in player.hand:
+                        if card.card_type == card_type and card.number == number:
+                            passed_cards.append(card)
+                            player.hand.remove(card)
                     break
                 else:
                     print("You don't have that card in your hand. Please select again.")
         return passed_cards
 
     def play_card(self):
+        print(self.table.current_player_index)
         current_player = self.table.players[self.table.current_player_index]
         print(f"{current_player.name}'s turn.")
         print(f"Current table: {self.table.card1.number}{self.table.card1.card_type} {self.table.card2.number}{self.table.card2.card_type} {self.table.card3.number}{self.table.card3.card_type} {self.table.card4.number}{self.table.card4.card_type}")
